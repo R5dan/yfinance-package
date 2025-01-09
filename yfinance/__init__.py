@@ -43,5 +43,6 @@ __all__ = ["download", "Market", "Search", "Ticker", "Tickers", "enable_debug_mo
 
 def set_config(proxy=None, timeout=None, lang=None, region=None, session=None, url=None):
     from .data import YfData
-
-    YfData.set_config(proxy, timeout, lang, region, session, url)
+    from .const import _ROOT_URL_
+    _ROOT_URL_ = url or _ROOT_URL_
+    YfData.set_config(proxy, timeout, lang, region, session)
