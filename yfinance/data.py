@@ -7,7 +7,7 @@ import datetime
 
 from frozendict import frozendict
 
-from . import utils, cache
+from . import utils, cache, const
 import threading
 
 from .exceptions import YFRateLimitError
@@ -58,7 +58,6 @@ class SingletonMeta(type):
         cls.lang = lang or "en-US"
         cls.region = region or "US"
         cls.session = session or requests.Session()
-
 
 class YfData(metaclass=SingletonMeta):
     """
@@ -169,7 +168,7 @@ class YfData(metaclass=SingletonMeta):
         # To avoid infinite recursion, do NOT use self.get()
         # - 'allow_redirects' copied from @psychoz971 solution - does it help USA?
         response = self._session.get(
-            url=YfData.url,
+            url=f"https://{const._BASE_URL_}",
             headers=self.user_agent_headers,
             proxies=YfData.proxy,
             timeout=YfData.timeout,
