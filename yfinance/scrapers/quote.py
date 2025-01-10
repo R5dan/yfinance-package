@@ -637,7 +637,7 @@ class Quote:
             query1_info[k] = _format(k, v)
         self._info = query1_info
 
-    def _fetch_complementary(self):
+    def _fetch_complementary(self, proxy):
         if self._already_fetched_complementary:
             return
         self._already_fetched_complementary = True
