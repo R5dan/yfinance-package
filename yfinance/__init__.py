@@ -41,8 +41,9 @@ warnings.filterwarnings("default", category=DeprecationWarning, module="^yfinanc
 __all__ = ["download", "Market", "Search", "Ticker", "Tickers", "enable_debug_mode", "set_tz_cache_location", "Sector",
            "Industry", "EquityQuery", "Screener", "set_config"]
 
-def set_config(proxy=None, timeout=None, lang=None, region=None, session=None, url=None):
+def set_config(proxy=None, timeout=30, lang="en-US", region="US", session=None, url="finance.yahoo.com") -> 'dict':
     from .data import YfData
     from .const import _ROOT_URL_
     _ROOT_URL_ = url or _ROOT_URL_
     YfData.set_config(proxy, timeout, lang, region, session)
+    return {"proxy": proxy, "timeout": timeout, "lang": lang, "region": region, "session": session, "url": url}
