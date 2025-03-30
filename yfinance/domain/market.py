@@ -42,14 +42,12 @@ class Market:
         summary_params = {
             "fields": ",".join(summary_fields),
             "formatted": False,
-            "lang": "en-US",
             "market": self.market
         }
 
         status_params = {
             "formatted": True,
             "key": "finance",
-            "lang": "en-US",
             "market": self.market
         }
 

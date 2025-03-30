@@ -122,7 +122,7 @@ def screen(query: Union[str, EquityQuery, FundQuery],
         if k in fields:
             del fields[k]
 
-    params_dict = {"corsDomain": "finance.yahoo.com", "formatted": "false", "lang": "en-US", "region": "US"}
+    params_dict = {"corsDomain": "finance.yahoo.com", "formatted": "false"}
 
     post_query = None
     if isinstance(query, str):

@@ -566,6 +566,9 @@ class YfData(metaclass=SingletonMeta):
         if "https" in url:
             raise ValueError("Don't manually add 'https://' to the url, let data.py handle it")
         
+        if "lang" in params:
+            raise ValueError("Don't manually add 'lang' to params dict, let data.py handle it")
+        
         config = {
             "region": YfData.region,
             "lang": YfData.lang,

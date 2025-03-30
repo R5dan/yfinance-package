@@ -629,7 +629,6 @@ class TickerBase:
             return self._earnings_dates[clamped_limit]
 
         # Fetch data
-        params = {"lang": "en-US", "region": "US"}
         body = {
             "size": clamped_limit,
             "query": {
@@ -644,7 +643,7 @@ class TickerBase:
             "entityIdType": "earnings",
             "includeFields": ["startdatetime", "timeZoneShortName", "epsestimate", "epsactual", "epssurprisepct"]
         }
-        response = self._data.post(YfData.URLS.EARNINGS_DATES_URL, params=params, body=body, proxy=proxy)
+        response = self._data.post(YfData.URLS.EARNINGS_DATES_URL, body=body, proxy=proxy)
         json_data = response.json()
 
         # Extract data
